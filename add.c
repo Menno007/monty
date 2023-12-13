@@ -13,15 +13,13 @@ void add(stack_t **head, unsigned int line_number)
     if (size < 2)
     {
         fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-        _free(head), free(G.monty_file), free(G.line);
         exit(EXIT_FAILURE);
     }
 
     ptr = *head;
-    ptr->next->n = ptr->next->n + ptr->n;
-    *head = (*head)->next;
-    free(ptr);
-    ptr = NULL;
-
+    ptr->next->n += ptr->n;
+    ptr = ptr->next;
+    free(*head);
+    *head = ptr;
     return;
 }
