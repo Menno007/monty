@@ -23,6 +23,7 @@ void push(stack_t **head, unsigned int line_number, char *data);
 void pall(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
+void swap(stack_t **head, unsigned int line_number);
 int check_intger(char *data);
 /**
  * struct instruction_s - opcode and its function

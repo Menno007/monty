@@ -50,7 +50,7 @@ int check_intger(char *data)
     
     if (data[0] == '-')
         i++;
-    for (i; i < n-1; i++)
+    for (; i < n-1; i++)
     {
         if (data[i] < '0' || data[i] > '9')
             return (0);
