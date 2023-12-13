@@ -10,6 +10,7 @@
 void (*get_func(char *s, int line_number))(stack_t **, unsigned int)
 {
 	instruction_t opcodes[] = {
+	{"push", push},
     {"pall", pall},
 	{"pint", pint},
 	{"pop", pop},

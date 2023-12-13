@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
     unsigned int line_number = 0;
     size_t BufferSize = 0;
-    char *line = NULL, *token = NULL, *data = NULL;
+    char *line = NULL, *token = NULL;
     FILE *monty_file = NULL;
     stack_t *head = NULL;
     void (*f)(stack_t **, unsigned int);
@@ -29,13 +29,6 @@ int main(int argc, char **argv)
         token = strtok(line, " \t\n");
         if (token == NULL || token[0] == '#')
             continue;
-
-        if (strcmp(token, "push") == 0)
-        {
-            data = strtok(NULL, " \t\n");
-            push(&head, line_number, data);
-            continue;
-        }
 
         f = get_func(token, line_number);
         f(&head, line_number);
