@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -24,6 +25,7 @@ void pall(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
+void _free(stack_t **head);
 int check_intger(char *data);
 /**
  * struct instruction_s - opcode and its function
@@ -39,4 +41,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 void (*get_func(char *s, int line_number))(stack_t **, unsigned int);
+
+/**
+ * struct global_s - I just use one global variable
+ * @file: file pointer to close it before any exit
+ * @line: the current line in the file to read  it
+ * @is_stack: specifies mode of the data structure
+ */
+typedef struct global_s
+{
+	FILE *monty_file;
+	char *line;
+	int is_stack;
+} global_t;
+extern global_t G;
+
 #endif

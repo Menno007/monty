@@ -7,6 +7,7 @@
  * Return: pointer to the function that corresponds to the
  * operator given as a parameter
  */
+
 void (*get_func(char *s, int line_number))(stack_t **, unsigned int)
 {
 	instruction_t opcodes[] = {
@@ -28,6 +29,7 @@ void (*get_func(char *s, int line_number))(stack_t **, unsigned int)
 	if (opcodes[i].f == NULL)
     {
         fprintf(stderr, "L%d: unknown instruction %s\n", line_number, s);
+		free(s), free(G.monty_file);
         exit(EXIT_FAILURE);
     }
 	return (NULL);

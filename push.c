@@ -1,14 +1,14 @@
 #include "monty.h"
+
 void push(stack_t **head, unsigned int line_number)
 {
     int n1;
     char *n = strtok(NULL, " \t\n");
     stack_t *new_node, *ptr = *head;
-
-    if (!check_intger(n))
+    if (!n || !check_intger(n))
     {
         fprintf(stderr, "L%d: usage: push integer\n", line_number);
-        free(*head);
+        _free(head), free(n), free(G.monty_file);
         exit(EXIT_FAILURE);
     }
 
@@ -17,7 +17,7 @@ void push(stack_t **head, unsigned int line_number)
 	if (new_node == NULL)
 	{
         fprintf(stderr, "Error: malloc failed\n");
-        free(*head), free(n);
+        _free(head), free(n), free(G.monty_file);
         exit(EXIT_FAILURE);
     }
 
@@ -51,7 +51,8 @@ int check_intger(char *data)
     
     if (data[0] == '-')
         i++;
-    for (; i < n-1; i++)
+    
+    for (; i < n; i++)
     {
         if (data[i] < '0' || data[i] > '9')
             return (0);
