@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * get_op_func - function pointer that selects the correct function to perform
  * the operation asked by the user
@@ -11,14 +12,10 @@
 void (*get_func(char *s, int line_number))(stack_t **, unsigned int)
 {
 	instruction_t opcodes[] = {
-	{"push", push},
-    {"pall", pall},
-	{"pint", pint},
-	{"pop", pop},
-    {"swap", swap},
-    {"add", add},
-    {"nop", nop},
-    {NULL, NULL}
+	{"push", push}, {"pall", pall},
+	{"pint", pint}, {"pop", pop},
+    {"swap", swap}, {"add", add},
+    {"nop", nop}, {NULL, NULL}
 };
 
 	int i;

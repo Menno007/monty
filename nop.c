@@ -1,5 +1,5 @@
 #include "monty.h"
-void nop(stack_t **head, unsigned int line_number)
+void nop(stack_t __attribute__ ((unused)) **head, unsigned int __attribute__ ((unused)) line_number)
 {
     return;
 }

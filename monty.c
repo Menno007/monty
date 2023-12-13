@@ -1,5 +1,6 @@
 #include "monty.h"
 #include <string.h>
+#include <stdio.h>
 global_t G;
 
 int main(int argc, char **argv)

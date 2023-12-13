@@ -2,7 +2,7 @@
 void add(stack_t **head, unsigned int line_number)
 {
     stack_t *ptr = *head;
-    int size = 0, tmp;
+    int size = 0;
 
     while (ptr != NULL)
     {
