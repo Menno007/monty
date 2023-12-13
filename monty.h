@@ -25,6 +25,8 @@ void pall(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
+void add(stack_t **head, unsigned int line_number);
+void nop(stack_t **head, unsigned int line_number);
 void _free(stack_t **head);
 int check_intger(char *data);
 /**

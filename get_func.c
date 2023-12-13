@@ -16,12 +16,14 @@ void (*get_func(char *s, int line_number))(stack_t **, unsigned int)
 	{"pint", pint},
 	{"pop", pop},
     {"swap", swap},
+    {"add", add},
+    {"nop", nop},
     {NULL, NULL}
 };
 
 	int i;
 
-	for (i = 0; opcodes[i].opcode != NULL; i++)
+	for (i = 0; opcodes[i].opcode; i++)
     {
         if (strcmp(opcodes[i].opcode, s) == 0)
             return opcodes[i].f;
