@@ -33,6 +33,9 @@ void divf(stack_t **head, unsigned int line_number);
 void mul(stack_t **head, unsigned int line_number);
 void mod(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
+void pchar(stack_t **head, unsigned int line_number);
+void pstr(stack_t **head, unsigned int line_number);
+void rotl(stack_t **head, unsigned int line_number);
 void _free(stack_t **head);
 int check_intger(char *data);
 /**

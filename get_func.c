@@ -17,7 +17,8 @@ void (*get_func(char *s, int line_number))(stack_t **, unsigned int)
     {"swap", swap}, {"add", add},
     {"nop", nop}, {"sub", sub},
     {"div", divf}, {"mul", mul},
-    {"mod", mod},
+    {"mod", mod}, {"pchar", pchar},
+    {"pstr", pstr}, {"rotl", rotl},
     {NULL, NULL}
 };
 
