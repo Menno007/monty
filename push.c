@@ -7,6 +7,7 @@ void push(stack_t **head, unsigned int line_number, char *data)
     if (!check_intger(data))
     {
         fprintf(stderr, "L%d: usage: push integer\n", line_number);
+        free(*head);
         exit(EXIT_FAILURE);
     }
 
@@ -15,6 +16,7 @@ void push(stack_t **head, unsigned int line_number, char *data)
 	if (new_node == NULL)
 	{
         fprintf(stderr, "Error: malloc failed\n");
+        free(*head), free(data);
         exit(EXIT_FAILURE);
     }
 
@@ -41,11 +43,14 @@ void push(stack_t **head, unsigned int line_number, char *data)
 
 int check_intger(char *data)
 {
-    int i, n = strlen(data);
+    int i = 0, n = strlen(data);
 
-    if (data == NULL)
+    if (!data)
         return (0);
-    for (i = 0; i < n-1; i++)
+    
+    if (data[0] == '-')
+        i++;
+    for (i; i < n-1; i++)
     {
         if (data[i] < '0' || data[i] > '9')
             return (0);

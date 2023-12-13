@@ -22,6 +22,7 @@ typedef struct stack_s
 void push(stack_t **head, unsigned int line_number, char *data);
 void pall(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
+void pop(stack_t **head, unsigned int line_number);
 int check_intger(char *data);
 /**
  * struct instruction_s - opcode and its function
@@ -36,5 +37,5 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-void (*get_func(char *s))(stack_t **, unsigned int);
+void (*get_func(char *s, int line_number))(stack_t **, unsigned int);
 #endif

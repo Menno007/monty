@@ -3,7 +3,7 @@
 int main(int argc, char **argv)
 {
     unsigned int line_number = 0;
-    size_t BufferSize = 0, line_lenght;
+    size_t BufferSize = 0;
     char *line = NULL, *token = NULL, *data = NULL;
     FILE *monty_file = NULL;
     stack_t *head = NULL;
@@ -21,28 +21,28 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
 
-    while (line_lenght = (getline(&line, &BufferSize, monty_file)) != -1)
+
+
+    while (getline(&line, &BufferSize, monty_file) != -1)
     {
         line_number++;
-        token = strtok(line, " ");
+        token = strtok(line, " \t\n");
+        if (token == NULL)
+            continue;
+
         if (strcmp(token, "push") == 0)
         {
-            data = strtok(NULL, " ");
+            data = strtok(NULL, " \t\n");
             push(&head, line_number, data);
             continue;
         }
 
-
-        f = get_func(token);
-        if (f == NULL)
-        {
-            fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
-            exit(EXIT_FAILURE);
-        }
-
+        f = get_func(token, line_number);
         f(&head, line_number);
-
     }
+
+
+
 
      /* Close the file */
     fclose(monty_file);
