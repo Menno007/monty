@@ -1,12 +1,6 @@
-    push      1
-push      2
-#fsadfas        
-      push 3  
-    pop
-    push 6
-    pall
-    pop
-    pop
-    pop
-    pall
-    pop
+push 1
+push 2
+push 3
+swap
+pall
+

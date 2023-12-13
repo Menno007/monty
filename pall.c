@@ -9,6 +9,5 @@ void pall(stack_t **head, unsigned int line_number)
 		printf("%d\n", ptr->n);
         ptr = ptr->next;
 	}
-
     return;
 }
