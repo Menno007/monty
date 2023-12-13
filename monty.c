@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     {
         line_number++;
         token = strtok(line, " \t\n");
-        if (token == NULL)
+        if (token == NULL || token[0] == '#')
             continue;
 
         if (strcmp(token, "push") == 0)
