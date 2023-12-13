@@ -3,7 +3,7 @@ void pchar(stack_t **head, unsigned int line_number)
 {
     int ch = (*head)->n;
 
-    if ((*head) == NULL)
+    if ((*head) == NULL || head == NULL)
     {
         fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
         exit(EXIT_FAILURE);
