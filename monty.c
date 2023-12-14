@@ -8,13 +8,17 @@ int main(int argc, char *argv[]);
 */
 int main(int argc, char *argv[])
 {
+	FILE *file;
+	stack_t *stack = NULL;
+	int i;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: %s file\n", argv[0]);
 		return (EXIT_FAILURE);
 	}
 
-	FILE *file = fopen(argv[1], "r");
+	file = fopen(argv[1], "r");
 
 	if (file == NULL)
 	{
@@ -22,7 +26,6 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	stack_t *stack = NULL;
 	char opcode[256];
 	unsigned int line_number = 0;
 
@@ -34,7 +37,6 @@ int main(int argc, char *argv[])
 	while (fscanf(file, "%s", opcode) != EOF)
 	{
 		line_number++;
-		int i;
 
 		for (i = 0; instructions[i].opcode != NULL; i++)
 		{

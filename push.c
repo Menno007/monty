@@ -8,6 +8,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	char *value_str;
 	int value;
+	stack_t *new_node;
 
 	if (scanf("%ms", &value_str) != 1)
 	{
@@ -18,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 	value = atoi(value_str);
 	free(value_str);
 
-	stack_t *new_node = malloc(sizeof(stack_t));
+	new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
 	{
@@ -46,8 +47,9 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
+	stack_t *current;
 
-	stack_t *current = *stack;
+	current = *stack;
 
 	while (current != NULL)
 	{
