@@ -35,6 +35,9 @@ void pstr(stack_t **head, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *head;
 
+	if (!ptr)
+		return;
+
 	while ((ptr->n > 0 && ptr->n < 127) && ptr)
 	{
 		printf("%c", ptr->n);

@@ -14,7 +14,9 @@ void push(stack_t **head, unsigned int line_number)
 	if (!n || !check_intger(n))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		_free(head), free(n), free(G.monty_file), free(G.line);
+		printf("%s\n", G.line);
+		_free(head), free(G.monty_file), free(G.line);
+		printf("%s\n", G.line);
 		exit(EXIT_FAILURE);
 	}
 

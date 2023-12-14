@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	while (getline(&G.line, &BufferSize, G.monty_file) != -1)
 	{
 		line_number++;
-		token = strtok(G.line, " \t\n");
+		token = strtok(G.line, "\t\n ");
 		if (token == NULL || token[0] == '#')
 			continue;
 
