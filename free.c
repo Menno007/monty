@@ -10,7 +10,7 @@ void free_dlistint(stack_t **head)
 		return;
 
 	if ((*head)->next != NULL)
-		free_dlistint((*head)->next);
+		free_dlistint(&(*head)->next);
 
 	free(head);
 }

@@ -39,4 +39,6 @@ void push(stack_t **stack, unsigned int line_number);
 
 void pall(stack_t **stack, unsigned int line_number);
 
+void free_dlistint(stack_t **head);
+
 #endif
