@@ -1,2 +1,2 @@
 LIFO FIFO
-.
+
