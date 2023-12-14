@@ -1,28 +1,57 @@
 #include "monty.h"
 /**
- * push - adds a new node at the beginning
- * @stack: pointer to pointer head
- * @value: data int
- * @line_number: msccw
- * Return: the address of the new element, or NULL if it failed.
+ * push - Pushes an element onto the stack
+ * @stack: Double pointer to the head of the stack
+ * @line_number: Line number in the file
  */
-void push(stack_t **stack, unsigned int line_number, int value)
+void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node;
-	(void) line_number;
+	char *value_str;
+	int value;
 
-	if (stack == NULL)
+	if (scanf("%ms", &value_str) != 1)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
-	new_node = malloc(sizeof(stack_t));
+	}
+
+	value = atoi(value_str);
+	free(value_str);
+
+	stack_t *new_node = malloc(sizeof(stack_t));
+
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+
 	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
+
 	if (*stack != NULL)
+	{
 		(*stack)->prev = new_node;
+	}
+
 	*stack = new_node;
+}
+
+/**
+ * pall - Prints all the values on the stack
+ * @stack: Double pointer to the head of the stack
+ * @line_number: Line number in the file
+ */
+void pall(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+
+	stack_t *current = *stack;
+
+	while (current != NULL)
+	{
+		printf("%d\n", current->n);
+		current = current->next;
+	}
 }
