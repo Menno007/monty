@@ -14,6 +14,11 @@ int main(int argc, char *argv[])
 	char opcode[256];
 	unsigned int line_number = 0;
 
+	instruction_t instructions[] = {
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}};
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: %s file\n", argv[0]);
@@ -28,12 +33,6 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-
-
-	instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{NULL, NULL}};
 
 	while (fscanf(file, "%s", opcode) != EOF)
 	{
