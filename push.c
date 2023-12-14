@@ -10,7 +10,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int value;
 	stack_t *new_node;
 
-	if (scanf("%p", &value_str) != 1)
+	if (scanf("%ms", &value_str) != 1)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
