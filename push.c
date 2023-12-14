@@ -6,21 +6,20 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	char *value_str;
+	char buffer[256];
 	int value;
 	stack_t *new_node;
 
-	if (scanf("%ms", &value_str) != 1)
+	if (scanf("%255s", buffer) != 1)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	value = atoi(value_str);
-	free(value_str);
+	/* Convert the string to an integer */
+	value = atoi(buffer);
 
 	new_node = malloc(sizeof(stack_t));
-
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
