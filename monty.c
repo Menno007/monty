@@ -1,6 +1,5 @@
 #include "monty.h"
 int main(int argc, char *argv[]);
-
 /**
  * main - function
  * @argc: ll
@@ -25,6 +24,11 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+
+	instruction_t instructions[] = {
+		{"push", push},
+		{NULL, NULL}
+	};
 
 	while (fscanf(byte_code_file, "%s", opcode) != EOF)
 	{

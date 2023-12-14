@@ -5,12 +5,12 @@
  * @n: data int
  * Return: the address of the new element, or NULL if it failed.
  */
-stack_t *push(stack_t **head, const int n)
+void push(stack_t **head, const int n)
 {
 	stack_t *new_node;
 
 	if (head == NULL)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
@@ -23,6 +23,4 @@ stack_t *push(stack_t **head, const int n)
 	if (*head != NULL)
 		(*head)->prev = new_node;
 	*head = new_node;
-
-	return (new_node);
 }
