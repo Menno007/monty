@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 		if (instructions[i].opcode == NULL)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-			free(opcode);
 			free_dlistint(&stack);
 			fclose(file);
 			return (EXIT_FAILURE);
