@@ -11,6 +11,8 @@ int main(int argc, char *argv[])
 	FILE *file;
 	stack_t *stack = NULL;
 	int i;
+	char opcode[256];
+	unsigned int line_number = 0;
 
 	if (argc != 2)
 	{
@@ -26,8 +28,7 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	char opcode[256];
-	unsigned int line_number = 0;
+
 
 	instruction_t instructions[] = {
 		{"push", push},
